@@ -11,7 +11,7 @@ class Atleta(ABC):
         self.peso = p
 
     def aquecer(self):
-        return "Aquecer"
+        return "Aquecendo..."
     
     def __str__(self) -> str:
         return f"Nome: {self.nome}, {self.idade} anos, {self.peso} Kg"
@@ -19,14 +19,22 @@ class Atleta(ABC):
 class Corredor(Atleta):
     
     def correr(self):
-        return "Correndo"
+        return "Correndo..."
 
 class Nadador(Atleta):
 
     def nadar(self):
-        return 'Nadando'
+        return 'Nadando...'
 
 class Ciclista(Atleta):
     
     def pedalar(self):
-        return 'Pedalando'
+        return 'Pedalando...'
+    
+class Triatleta(Corredor, Nadador, Ciclista):
+    def realizar_maratona(self):
+        info = self.aquecer()
+        info += self.nadar()
+        info += self.pedalar()
+        info += self.correr()
+        return info
