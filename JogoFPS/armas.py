@@ -1,5 +1,4 @@
 from abc import ABC, ABCMeta, abstractmethod
-from fps import *
 from golpes import *
 
 class Arma(ABC):
@@ -8,7 +7,7 @@ class Arma(ABC):
     def __init__(self, d: float):
         self.destruicao = d
 
-    def agredir(self, j: Jogador):
+    def agredir(self, j):
         j.energia -= 5
 
     def __str__(self):
@@ -21,7 +20,7 @@ class Faca(Arma):
         self.destruicao = 15
         self.lamina = 10
 
-    def agredir(self, j: Jogador):
+    def agredir(self, j):
         self.lamina -= 1
         if self.lamina > 0:
             j.energia -= self.destruicao
@@ -30,7 +29,7 @@ class Faca(Arma):
 
 class Disparavel(metaclass=ABCMeta):
     @abstractmethod
-    def disparar(self, j: Jogador):
+    def disparar(self, j):
         pass
     
     @abstractmethod
@@ -44,7 +43,7 @@ class Revolver(Arma, Disparavel):
         self.destruicao = 20
         self.cartuchos = 6
     
-    def disparar(self, j: Jogador):
+    def disparar(self, j):
         if self.cartuchos > 0:
             self.cartuchos -= 1
             j.energia -= self.destruicao
@@ -61,7 +60,7 @@ class Lanca_Chamas(Arma, Disparavel):
         self.destruicao = 30
         self.gas = 100
 
-    def disparar(self, j: Jogador):
+    def disparar(self, j):
         if self.gas > 0:
             self.gas -= 5.5
             j.energia -= self.destruicao
@@ -70,7 +69,6 @@ class Lanca_Chamas(Arma, Disparavel):
         self.gas = 100
 
 class Soco_Ingles(Faca, Soco):
-    def agredir(self, j: Jogador):
+    def agredir(self, j):
         super().agredir(j)
         self.golpear(j)
-    

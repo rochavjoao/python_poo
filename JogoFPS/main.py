@@ -1,14 +1,14 @@
 from golpes import *
-from fps import *
+from fps import Jogador
 from armas import *
 
 if __name__ == '__main__':
     j1 = Jogador()
+    j2 = Jogador()
     print(f'Jogador 1 {j1}')
-    si = Soco_Ingles()
+    print(f'Jogador 2 {j2}')
+    
+    j1.bater(a=Revolver(), j=j2)
 
-    print(j1)
-    for x in range(1,11):
-        print(x)
-        si.agredir(j1)
-        print(j1)
+    print(f'Jogador 1 {j1}')
+    print(f'Jogador 2 {j2}')
