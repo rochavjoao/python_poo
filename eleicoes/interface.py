@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkinter import ttk
 
 root = tk.Tk()
 
@@ -24,6 +25,9 @@ root.resizable(False, False)
 
 # inserir uma logo para a janela !!!!! ESTÁ DANDO ERRO !!!!!
 # root.iconbitmap('./assets/logo.ico')
+
+tk.Label(root, text='Classic Lable').pack()
+ttk.Label(root, text='Label Tematica').pack()
 
 # mantenha a janela exibindo
 root.mainloop()
