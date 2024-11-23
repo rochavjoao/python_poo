@@ -29,5 +29,12 @@ root.resizable(False, False)
 tk.Label(root, text='Classic Lable').pack()
 ttk.Label(root, text='Label Tematica').pack()
 
+def button_clicked():
+    print('Button clicked')
+
+
+button = ttk.Button(root, text='Click Me', command=button_clicked)
+button.pack()
+
 # mantenha a janela exibindo
 root.mainloop()
