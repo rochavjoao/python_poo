@@ -2,9 +2,9 @@ import pickle
 from typing import List
 from common import *
 from datetime import date
+from int_grafica import *
 
-
-class Urna:
+class Urna(Transparencia):
     mesario : Pessoa
     __secao : int
     __zona : int
